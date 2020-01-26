@@ -1,0 +1,7 @@
+.taskCard{
+  display: flex;
+  justify-content: space-between;
+  .delete{
+    flex-shrink: 0;
+  }
+}
