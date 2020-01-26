@@ -8,13 +8,16 @@ import Header from './components/header/Header'
 import pathname from './constants/pathname';
 import TaskList from './screens/taskList/TaskList';
 import DeletedTask from './screens/deletedTask/DeletedTask';
+import {Provider} from 'react-redux';
+import {createStore} from "redux";
+import Store from './store/Combain'
 
 function App() {
     return (
-        <>
-            <Header/>
-            <div className="container">
-                <Router>
+        <Provider store={Store}>
+            <Router>
+                <Header/>
+                <div className="container">
                     <Route exact path={pathname.main} component={() => (<div>main page</div>)}/>
                     <Route path={pathname.list} component={TaskList}/>
                     <Route
@@ -30,9 +33,9 @@ function App() {
                     />
                     <Route path={pathname.deletedTask} component={DeletedTask}
                     />
-                </Router>
-            </div>
-        </>
+                </div>
+            </Router>
+        </Provider>
     );
 }
 

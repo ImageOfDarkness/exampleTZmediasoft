@@ -13,12 +13,19 @@ export default class AddTaskModal extends React.Component {
     handleShow = () => this.props.setShow(true);
 
     successHundler = () => {
-        this.handleClose();
         console.log(this.state.taskMessage);
-        this.props.addTask(this.state.taskMessage);
-        this.setState({
-            taskMessage: ''
-        })
+        if (this.state.taskMessage) {
+            this.props.addTask(this.state.taskMessage);
+            this.setState({
+                taskMessage: ''
+            })
+            this.handleClose();
+        }else{
+            this.setState({
+                taskMessage: 'Уюлюдак, мать твою, а ну иди сюда, говно собачье!'
+            })
+        }
+
     }
     onChangeHundler = (e) => {
         this.setState({
