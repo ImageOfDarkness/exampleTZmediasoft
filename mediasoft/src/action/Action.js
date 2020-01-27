@@ -11,3 +11,10 @@ export const deleteTaskAction = (id) => {
         payload: id
     }
 };
+
+export const completedTascAction = (flag) => {
+    return {
+        type: "TASK_COMPLETED",
+        payload: flag
+    }
+};
